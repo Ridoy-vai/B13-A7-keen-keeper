@@ -8,6 +8,9 @@ const ContextProvider = ({ children }) => {
   const [call, setCall] = useState([]);
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState();
+  const [massage, setmassage] = useState([]);
+  const [video, setvideo] = useState([]);
+  const [phone, setphone] = useState([]);
 
   const data = {
     call,
@@ -15,7 +18,13 @@ const ContextProvider = ({ children }) => {
     open,
     setOpen,
     filter,
-    setFilter
+    setFilter,
+    massage,
+    setmassage,
+    video,
+    setvideo,
+    phone,
+    setphone
   }
 
   return (

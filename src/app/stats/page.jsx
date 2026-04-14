@@ -1,13 +1,16 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { TimelineContext } from '../Contex/Contex';
 
 const StatsPage = () => {
-    const data = [
-        { name: 'Messages', value: 300, color: '#10B981' },
-        { name: 'Video Calls', value: 200, color: '#F59E0B' }, 
-        { name: 'Audio Calls', value: 100, color: '#EF4444' }, 
-    ];
+    const { massage, video, phone } = useContext(TimelineContext);
+    
+const data = [
+  { name: 'Messages', value: massage.length, color: '#10B981' },
+  { name: 'Video Calls', value: video.length, color: '#F59E0B' },
+  { name: 'Audio Calls', value: phone.length, color: '#EF4444' },
+];
 
     // টোটাল ভ্যালু ক্যালকুলেশন (মাঝখানে দেখানোর জন্য)
     const totalValue = data.reduce((acc, curr) => acc + curr.value, 0);
@@ -15,13 +18,13 @@ const StatsPage = () => {
     // মাউস ওভারের জন্য স্টেট (অ্যানিমেশন ফিল এর জন্য)
     const [activeIndex, setActiveIndex] = useState(null);
 
-   
+
 
     return (
         <div className="w-full max-w-4xl mx-auto p-4 md:p-6">
             {/* মূল কার্ড */}
             <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-xl shadow-gray-100/50 flex flex-col md:flex-row items-center gap-8">
-                
+
                 {/* ১. চার্ট সেকশন (Responsive) */}
                 <div className="relative w-full h-70 md:w-1/2 md:h-80">
                     <ResponsiveContainer width="100%" height="100%">
@@ -39,9 +42,9 @@ const StatsPage = () => {
                                 onMouseLeave={() => setActiveIndex(null)}
                             >
                                 {data.map((entry, index) => (
-                                    <Cell 
-                                        key={`cell-${index}`} 
-                                        fill={entry.color} 
+                                    <Cell
+                                        key={`cell-${index}`}
+                                        fill={entry.color}
                                         style={{
                                             filter: activeIndex === index ? `drop-shadow(0 8px 12px ${entry.color}50)` : 'none',
                                             transition: 'all 0.3s ease',
@@ -54,17 +57,17 @@ const StatsPage = () => {
                         </PieChart>
                     </ResponsiveContainer>
 
-                    
+
                 </div>
 
                 {/* ২. কাস্টম লিজেন্ড এবং ইনফরমেশন সেকশন */}
                 <div className="w-full md:w-1/2 flex flex-col justify-center">
                     <h2 className="text-2xl font-bold text-[#1A2B3B] mb-1">Interaction Stats</h2>
                     <p className="text-gray-400 text-sm mb-6">Visual breakdown of your timeline activities</p>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {data.map((item, index) => (
-                            <div 
+                            <div
                                 key={index}
                                 onMouseEnter={() => setActiveIndex(index)}
                                 className={`p-4 rounded-xl border transition-all duration-300 cursor-pointer flex flex-col gap-1 

@@ -1,7 +1,7 @@
 "use client"
 import { TimelineContext } from '@/app/Contex/Contex';
 import { Video, Phone, MessageSquare, Handshake } from 'lucide-react';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 const TimelineMap = () => {
     const { call, filter } = useContext(TimelineContext);
@@ -29,11 +29,13 @@ const TimelineMap = () => {
             if (!filter) return true;
             return item.type.toLowerCase() === filter.toLowerCase();
         });
+
     };
+    
 
     const filteredData = getUniqueFilteredData();
 
-   
+
 
     return (
         <div className="max-w-3xl space-y-4">
@@ -41,13 +43,13 @@ const TimelineMap = () => {
                 <div key={index} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all flex items-center gap-4">
                     <div className="shrink-0">
                         {
-                            item.type === 'call' &&  <Phone className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
+                            item.type === 'call' && <Phone className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
                         }
                         {
-                            item.type === 'massage' &&  <MessageSquare className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
+                            item.type === 'massage' && <MessageSquare className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
                         }
                         {
-                            item.type === 'video' &&  <Video className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
+                            item.type === 'video' && <Video className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
                         }
                     </div>
 
