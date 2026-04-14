@@ -1,5 +1,6 @@
 import { Archive, Bell, MessageSquare, Phone, Trash2, Video } from "lucide-react";
 import Image from "next/image";
+import Button from "../../ui/Button";
 
 
 const FriendProfile = async ({ params }) => {
@@ -10,13 +11,13 @@ const FriendProfile = async ({ params }) => {
     const friends = await res.json()
 
     const matchFrind = friends.filter(fnd => Number(fnd.id) === Number(friendsDetails))
-    const matchFrinds = matchFrind[0]
-    
-    const { id, name, picture, email, days_since_contact, status, tags=[], bio, goal, next_due_date } = matchFrinds    
-    
+    const matchedFrind = matchFrind[0]
+
+    const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = matchedFrind
+
 
     return (
-        <div className="bg-[#F8FAFC] p-4 md:p-8 min-h-screen flex justify-center items-start font-sans">
+        <div className="bg-[#F8FAFC] p-4 md:p-8 min-h-screen flex justify-center items-start font-sans max-w-7xl mx-auto">
             <div className="max-w-5xl w-full grid grid-cols-12 gap-6">
 
                 {/* LEFT COLUMN */}
@@ -36,7 +37,7 @@ const FriendProfile = async ({ params }) => {
 
                         {/* Status & Tags */}
                         <div className="flex flex-col items-center gap-2 mt-3">
-                            <span className={`text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase shadow-sm ${status === 'overdue' ? 'bg-[#FF4D4D]' : 'bg-green-500'}`}>
+                            <span className={`text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase shadow-sm ${status === 'overdue' && 'bg-[#FF4D4D]'} ${status === 'almost due' && 'bg-[#F6AD55]'} ${status === 'on-track' && 'bg-[#244D3F]'}`}>
                                 {status}
                             </span>
                             <div className="flex flex-wrap justify-center gap-2">
@@ -44,6 +45,7 @@ const FriendProfile = async ({ params }) => {
                                     <span key={index} className="bg-[#DCFCE7] text-[#15803D] text-[10px] font-bold px-3 py-1 rounded-full uppercase">
                                         {tag}
                                     </span>
+                                    
                                 ))}
                             </div>
                         </div>
@@ -105,20 +107,7 @@ const FriendProfile = async ({ params }) => {
                     {/* Quick Check-In Section */}
                     <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
                         <h4 className="text-[#1B3B32] font-bold text-lg mb-6">Quick Check-In</h4>
-                        <div className="grid grid-cols-3 gap-4">
-                            <button className="flex flex-col items-center justify-center gap-2 p-6 rounded-2xl border border-gray-100 bg-[#F9FAFB] hover:bg-gray-100 transition-all group">
-                                <Phone className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
-                                <span className="text-xs font-bold text-gray-600 uppercase tracking-tighter">Call</span>
-                            </button>
-                            <button className="flex flex-col items-center justify-center gap-2 p-6 rounded-2xl border border-gray-100 bg-[#F9FAFB] hover:bg-gray-100 transition-all group">
-                                <MessageSquare className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
-                                <span className="text-xs font-bold text-gray-600 uppercase tracking-tighter">Text</span>
-                            </button>
-                            <button className="flex flex-col items-center justify-center gap-2 p-6 rounded-2xl border border-gray-100 bg-[#F9FAFB] hover:bg-gray-100 transition-all group">
-                                <Video className="text-[#1E293B] group-hover:scale-110 transition-transform" size={24} />
-                                <span className="text-xs font-bold text-gray-600 uppercase tracking-tighter">Video</span>
-                            </button>
-                        </div>
+                        {<Button matchedFrind={matchedFrind} />}
                     </div>
 
                 </div>

@@ -39,9 +39,24 @@ const ProfileCard = ({ friend }) => {
         </div>
 
         {/* Status Badge */}
-        <span className="bg-[#F6AD55] text-white text-sm font-semibold px-6 py-2 rounded-2xl shadow-sm">
-          {friend.status}
-        </span>
+        {
+          friend.status === "overdue" &&
+          <span className="bg-[#EF4444] text-white text-sm font-semibold px-6 py-2 rounded-2xl shadow-sm">
+            {friend.status}
+          </span>
+        }
+        {
+          friend.status === "almost due" &&
+          <span className="bg-[#F6AD55] text-white text-sm font-semibold px-6 py-2 rounded-2xl shadow-sm">
+            {friend.status}
+          </span>
+        }
+        {
+          friend.status === "on-track" &&
+          <span className="bg-[#244D3F] text-white text-sm font-semibold px-6 py-2 rounded-2xl shadow-sm">
+            {friend.status}
+          </span>
+        }
       </div>
     </Link>
   );

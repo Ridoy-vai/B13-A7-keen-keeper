@@ -3,8 +3,9 @@ import Friends from "./Component/friends/Friends";
 
 export default function Home() {
   return (
-  <>
-   <Friends/>
-  </>
+    <>
+      <Baner />
+      <Friends />
+    </>
   );
 }

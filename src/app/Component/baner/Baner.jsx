@@ -10,7 +10,7 @@ const Baner = () => {
   ];
 
   return (
-    <div className="bg-[#F9FAFB] min-h-screen py-16 px-4 font-sans">
+    <div className="bg-[#F9FAFB] max-h-screen py-16 px-4 font-sans rounded-3xl mt-1 max-w-7xl mx-auto">
       <div className="max-w-6xl mx-auto text-center">
         
         {/* Title Section */}
