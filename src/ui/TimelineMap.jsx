@@ -6,16 +6,11 @@ import React, { useContext, useEffect } from 'react';
 const TimelineMap = () => {
     const { call, filter } = useContext(TimelineContext);
 
-    // ১. ডুপ্লিকেট রিমুভ এবং ফিল্টারিং লজিক
     const getUniqueFilteredData = () => {
         if (!call) return [];
-
-        // ডুপ্লিকেট রিমুভ করার জন্য একটি Map ব্যবহার করছি
-        // এখানে ধরা হয়েছে যে item._id বা item.id.next_due_date এর কম্বিনেশন ইউনিক
         const uniqueMap = new Map();
 
         call.forEach(item => {
-            // ইউনিক কী তৈরি করছি (টাইপ + নাম + তারিখ) যেন একই ইভেন্ট দুইবার না আসে
             const uniqueKey = `${item.type}-${item.id?.name}-${item.id?.next_due_date}`;
             if (!uniqueMap.has(uniqueKey)) {
                 uniqueMap.set(uniqueKey, item);
@@ -24,18 +19,14 @@ const TimelineMap = () => {
 
         const uniqueData = Array.from(uniqueMap.values());
 
-        // ফিল্টার অনুযায়ী ডাটা আলাদা করা
         return uniqueData.filter((item) => {
             if (!filter) return true;
             return item.type.toLowerCase() === filter.toLowerCase();
         });
 
     };
-    
 
     const filteredData = getUniqueFilteredData();
-
-
 
     return (
         <div className="max-w-3xl space-y-4">

@@ -1,7 +1,5 @@
 "use client";
-
 import { createContext, useState } from "react";
-
 export const TimelineContext = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -12,6 +10,7 @@ const ContextProvider = ({ children }) => {
   const [video, setvideo] = useState([]);
   const [phone, setphone] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [activenav, setActivenav] = useState("home");
 
   const data = {
     call,
@@ -27,11 +26,13 @@ const ContextProvider = ({ children }) => {
     phone,
     setphone,
     activeIndex,
-    setActiveIndex
+    setActiveIndex,
+    activenav,
+    setActivenav
   }
 
   return (
-    <TimelineContext.Provider value={ data }>
+    <TimelineContext.Provider value={data}>
       {children}
     </TimelineContext.Provider>
   );

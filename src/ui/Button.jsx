@@ -37,7 +37,6 @@ const Button = ({ matchedFrind }) => {
         toast.success(`${newItem.id.name}  ${actionText[newItem.type]}`);
 
 
-
         const addUnique = (setter) => {
             setter(prev => {
                 const exists = prev.some(

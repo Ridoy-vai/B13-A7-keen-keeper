@@ -1,4 +1,6 @@
 import Link from "next/link";
+import NavLink from "./NavLink";
+
 
 const Navebar = () => {
   return (
@@ -25,14 +27,12 @@ const Navebar = () => {
           </div>
           <Link href={"/"} className="text-xl font-bold">KeenKeeper</Link>
         </div>
-        <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li><Link href={'/'}>Home</Link></li>
-            <li><Link href={'/timeline'}>Timeline</Link></li>
-            <li><Link href={'/stats'}>Stats</Link></li>
-          </ul>
-        </div>
 
+        <div className="navbar-end hidden lg:flex">
+
+          <NavLink />
+
+        </div>
       </div>
     </div>
   );
