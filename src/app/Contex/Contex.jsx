@@ -11,6 +11,7 @@ const ContextProvider = ({ children }) => {
   const [massage, setmassage] = useState([]);
   const [video, setvideo] = useState([]);
   const [phone, setphone] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const data = {
     call,
@@ -24,7 +25,9 @@ const ContextProvider = ({ children }) => {
     video,
     setvideo,
     phone,
-    setphone
+    setphone,
+    activeIndex,
+    setActiveIndex
   }
 
   return (

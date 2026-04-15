@@ -1,24 +1,18 @@
 "use client"
-import React, { useContext, useState } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import React, { useContext } from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { TimelineContext } from '../Contex/Contex';
 
 const StatsPage = () => {
-    const { massage, video, phone } = useContext(TimelineContext);
-    
-const data = [
-  { name: 'Messages', value: massage.length, color: '#10B981' },
-  { name: 'Video Calls', value: video.length, color: '#F59E0B' },
-  { name: 'Audio Calls', value: phone.length, color: '#EF4444' },
-];
+    const { massage, video, phone, activeIndex, setActiveIndex } = useContext(TimelineContext);
 
-    // টোটাল ভ্যালু ক্যালকুলেশন (মাঝখানে দেখানোর জন্য)
+    const data = [
+        { name: 'Messages', value: massage.length, color: '#10B981' },
+        { name: 'Video Calls', value: video.length, color: '#F59E0B' },
+        { name: 'Audio Calls', value: phone.length, color: '#EF4444' },
+    ];
+
     const totalValue = data.reduce((acc, curr) => acc + curr.value, 0);
-
-    // মাউস ওভারের জন্য স্টেট (অ্যানিমেশন ফিল এর জন্য)
-    const [activeIndex, setActiveIndex] = useState(null);
-
-
 
     return (
         <div className="w-full max-w-4xl mx-auto p-4 md:p-6">
@@ -56,8 +50,6 @@ const data = [
                             </Pie>
                         </PieChart>
                     </ResponsiveContainer>
-
-
                 </div>
 
                 {/* ২. কাস্টম লিজেন্ড এবং ইনফরমেশন সেকশন */}
@@ -80,7 +72,7 @@ const data = [
                                 <div className="flex items-baseline justify-between mt-1">
                                     <span className="text-2xl font-bold text-[#1A2B3B]">{item.value}</span>
                                     <span className="text-xs font-medium text-gray-400">
-                                        {((item.value / totalValue) * 100).toFixed(0)}%
+                                        {((item.value / totalValue) * 100).toFixed(0)}%%
                                     </span>
                                 </div>
                             </div>
