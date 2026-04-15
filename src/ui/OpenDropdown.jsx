@@ -1,13 +1,14 @@
 "use client"
-import { TimelineContext } from '@/app/Contex/Contex';
+import { TimelineContext } from '@/app/Component/Contex/Contex';
 import React, { useContext } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const OpenDropdown = () => {
-    const {  open, setOpen, setFilter } = useContext(TimelineContext);
+    const { open, setOpen, setFilter } = useContext(TimelineContext);
 
     const handleFilter = (Type) => {
         setFilter(Type)
+        Type === "nofilter" && setFilter()
         setOpen(false)
     }
 
@@ -24,6 +25,9 @@ const OpenDropdown = () => {
 
             {open && (
                 <div className="absolute top-full left-0 w-64 bg-white border border-gray-200 rounded-lg shadow-sm mt-2 z-50">
+                    <div onClick={() => handleFilter("nofilter")} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        No Filter
+                    </div>
                     <div onClick={() => handleFilter("call")} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                         Call
                     </div>

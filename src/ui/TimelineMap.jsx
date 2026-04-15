@@ -1,7 +1,7 @@
 "use client"
-import { TimelineContext } from '@/app/Contex/Contex';
+import { TimelineContext } from '@/app/Component/Contex/Contex';
 import { Video, Phone, MessageSquare, Handshake } from 'lucide-react';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 const TimelineMap = () => {
     const { call, filter } = useContext(TimelineContext);

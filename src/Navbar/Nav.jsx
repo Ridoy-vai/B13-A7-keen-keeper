@@ -3,6 +3,7 @@ import NavLink from "./NavLink";
 
 
 const Navebar = () => {
+ 
   return (
     <div className="bg-base-100 shadow-sm container">
       <div className="navbar max-w-7xl mx-auto">
@@ -14,23 +15,17 @@ const Navebar = () => {
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><a>Item 1</a></li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </li>
-              <li><a>Item 3</a></li>
+              <NavLink />
             </ul>
           </div>
           <Link href={"/"} className="text-xl font-bold">KeenKeeper</Link>
         </div>
 
         <div className="navbar-end hidden lg:flex">
-
+    <ul className="flex gap-3 menu-horizontal px-1">
           <NavLink />
+
+    </ul>
 
         </div>
       </div>

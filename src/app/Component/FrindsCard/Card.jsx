@@ -5,7 +5,7 @@ import React from 'react';
 const ProfileCard = ({ friend }) => {
   return (
     <Link href={`/${friend.id}`}>
-      <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 flex flex-col items-center space-y-5 w-64 h-full text-center">
+      <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 flex flex-col items-center space-y-5 w-full h-full text-center">
         <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-transparent">
           <Image
             src={friend.picture}
@@ -17,7 +17,7 @@ const ProfileCard = ({ friend }) => {
         </div>
         <h2 className="text-[#2D3748] text-xl font-bold mb-1">{friend.name}</h2>
         <p className="text-gray-400 text-sm mb-4">{friend.days_since_contact} Day ago</p>
-        <div className="flex gap-2 flex-wrap mb-3 w-full border border-amber-200 text-center justify-center">
+        <div className="flex gap-2 flex-wrap mb-3 w-full justify-center">
           {
             friend.tags.map((tag, index) => (
               <span

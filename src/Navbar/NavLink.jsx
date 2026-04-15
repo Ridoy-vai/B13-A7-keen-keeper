@@ -1,16 +1,40 @@
 'use client'
-import { TimelineContext } from "@/app/Contex/Contex";
 import Link from "next/link";
-import { useContext } from "react";
+import { usePathname } from "next/navigation";
+import { DiGoogleAnalytics } from "react-icons/di";
+import { IoHomeOutline } from "react-icons/io5";
+import { TfiTimer } from "react-icons/tfi";
 
 const NavLink = () => {
-    const { activenav, setActivenav } = useContext(TimelineContext);
+    const pathname = usePathname();
+    const navItems = [
+        {
+            name: "Home",
+            pathname: "/",
+            icon: <IoHomeOutline />
+        },
+        {
+            name: "Timeline",
+            pathname: "/timeline",
+            icon: <TfiTimer />
+        },
+        {
+            name: "Stats",
+            pathname: "/stats",
+            icon: <DiGoogleAnalytics />
+        }
+    ]
     return (
-        <ul className="flex gap-3 menu-horizontal px-1">
-            <li onClick={() => setActivenav("home")}><Link className={`${activenav === "home" && 'bg-black text-white'} btn  btn-ghost`} href="/">Home</Link></li>
-            <li onClick={() => setActivenav("Timeline")}><Link className={`${activenav === "Timeline" && 'bg-black text-white'}  btn-ghost btn`}  href="/timeline">Timeline</Link></li>
-            <li onClick={() => setActivenav("Stats")}><Link className={`${activenav === "Stats" && 'bg-black text-white'} btn btn-ghost`} href="/stats">Stats</Link></li>
-        </ul>
+        navItems.map((navItem, index) => (
+            <li key={index}>
+                <Link
+                    href={navItem.pathname}
+                    className={`${pathname === navItem.pathname ? "bg-amber-500 text-white" : ""} btn btn-ghost flex justify-center items-center`}
+                >
+                    {navItem?.icon}{navItem.name}
+                </Link>
+            </li>
+        ))
     );
 };
 

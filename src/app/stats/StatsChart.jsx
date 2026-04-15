@@ -1,5 +1,5 @@
 "use client";
-import { TimelineContext } from '@/app/Contex/Contex';
+import { TimelineContext } from '@/app/Component/Contex/Contex';
 import React, { useContext } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
@@ -7,21 +7,24 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 const StatsChart = () => {
     const { massage, video, phone, activeIndex, setActiveIndex } = useContext(TimelineContext);
 
-    const data = [
+    let data = [
         { name: 'Messages', value: massage.length, color: '#10B981' },
         { name: 'Video Calls', value: video.length, color: '#F59E0B' },
         { name: 'Audio Calls', value: phone.length, color: '#EF4444' },
     ];
+    if (massage.length === 0 && video.length === 0 && phone.length === 0) {
+        data = [
+            { name: 'No Data Available', value: 100, color: '#9CA3AF' },
+        ];
+    }
 
     const totalValue = data.reduce((acc, curr) => acc + curr.value, 0);
 
 
     return (
         <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-xl shadow-gray-100/50 flex flex-col md:flex-row items-center gap-8">
-
-            {/* Chart Section */}
             <div className="relative w-full h-70 md:w-1/2 md:h-80">
-                {totalValue > 0 ? (
+                {(
                     <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
                             <Pie
@@ -54,10 +57,6 @@ const StatsChart = () => {
                             </Pie>
                         </PieChart>
                     </ResponsiveContainer>
-                ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400">
-                        No data available
-                    </div>
                 )}
             </div>
 
@@ -89,7 +88,7 @@ const StatsChart = () => {
 
                             <div className="flex items-baseline justify-between mt-1">
                                 <span className="text-2xl font-bold text-[#1A2B3B]">
-                                    {item.value}
+                                    {item.name === 'No Data Available' ? "Emty" : item.value}
                                 </span>
 
                                 <span className="text-xs font-medium text-gray-400">

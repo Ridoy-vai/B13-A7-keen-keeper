@@ -10,7 +10,7 @@ const ContextProvider = ({ children }) => {
   const [video, setvideo] = useState([]);
   const [phone, setphone] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
-  const [activenav, setActivenav] = useState("home");
+  const [jsonData, setJsonData] = useState();
 
   const data = {
     call,
@@ -27,8 +27,8 @@ const ContextProvider = ({ children }) => {
     setphone,
     activeIndex,
     setActiveIndex,
-    activenav,
-    setActivenav
+    jsonData,
+    setJsonData
   }
 
   return (
