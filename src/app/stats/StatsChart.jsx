@@ -1,5 +1,5 @@
 "use client";
-import { TimelineContext } from '@/app/Component/Contex/Contex';
+import { TimelineContext } from '@/Contex/Contex';
 import React, { useContext } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 

@@ -1,6 +1,6 @@
 import "./globals.css";
 import Navebar from "@/Navbar/Nav";
-import ContextProvider from "./Component/Contex/Contex";
+import ContextProvider from "../Contex/Contex";
 import Footer from "@/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 

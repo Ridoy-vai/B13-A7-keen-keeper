@@ -7,7 +7,9 @@ import NotFound from "../not-found";
 const FriendProfile = async ({ params }) => {
     const { friendsDetails } = await params;
 
-    const res = await fetch('http://localhost:3000/Data.json')
+    const res = await fetch('https://b-13-a-7-keen-keeper.vercel.app/Data.json',{
+        cache: "no-store"
+    })
     const friends = await res.json()
 
     const matchFrind = friends.filter(fnd => Number(fnd.id) === Number(friendsDetails))

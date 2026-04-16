@@ -1,5 +1,5 @@
 "use client"
-import { TimelineContext } from '@/app/Component/Contex/Contex';
+import { TimelineContext } from '@/Contex/Contex';
 import { MessageSquare, Phone, Video } from 'lucide-react';
 import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
