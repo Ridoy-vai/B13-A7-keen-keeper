@@ -36,7 +36,7 @@ const TimelinePage = () => {
                 {/* Drop down section */}
                <OpenDropdown/>
 
-                {/* Timeline Items */}
+                {/* Timeline Items Map */}
               <TimelineMap/>
             </div>
         </div>
