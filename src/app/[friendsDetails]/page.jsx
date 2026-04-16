@@ -3,16 +3,30 @@ import Image from "next/image";
 import Button from "../../ui/Button";
 import NotFound from "../not-found";
 
+export const metadata = {
+    title: "KeenKeeper | Friend Details",
+    description:
+        "Explore your friend’s profile in KeenKeeper. See contact history, relationship status, personal goals, and stay connected effortlessly.",
+    keywords: [
+        "KeenKeeper",
+        "friend tracker",
+        "relationship manager",
+        "contact management",
+        "friend details app"
+    ],
+    authors: [{ name: "KeenKeeper Team" }],
+};
 
 const FriendProfile = async ({ params }) => {
     const { friendsDetails } = await params;
 
-    const res = await fetch('https://b-13-a-7-keen-keeper.vercel.app/Data.json',{
+    const res = await fetch('https://b-13-a-7-keen-keeper.vercel.app/Data.json', {
         cache: "no-store"
     })
     const friends = await res.json()
 
     const matchFrind = friends.filter(fnd => Number(fnd.id) === Number(friendsDetails))
+
     const matchedFrind = matchFrind[0]
     if (!matchedFrind) {
         return (
@@ -20,7 +34,7 @@ const FriendProfile = async ({ params }) => {
         );
     }
 
-    const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = matchedFrind
+    const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = matchedFrind;
 
 
     return (

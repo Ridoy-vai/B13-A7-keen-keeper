@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KEEN-KEEPER (Relationship Management) Tool
 
-## Getting Started
+## ১. ওয়েবসাইটের মূল উদ্দেশ্য (Overview)
+এটি মূলত একটি Personal CRM (Relationship Management) টুল।  
+এটি ব্যবহারকারীকে তার বন্ধু, পরিবার বা সহকর্মীদের সাথে নিয়মিত যোগাযোগ রাখতে সাহায্য করে।  
+কে কার সাথে কতদিন যোগাযোগ করেনি, তা ট্র্যাক করার জন্য এটি ডিজাইন করা হয়েছে।
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ২. প্রধান ফিচারসমূহ (Key Features)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ড্যাশবোর্ড এবং স্ট্যাটাস:
+হোমপেজে মোট বন্ধুর সংখ্যা,  
+কতজন 'On Track' আছে এবং কাদের প্রতি মনোযোগ দেওয়া দরকার (Need Attention) তা একনজরে দেখা যায়।
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### রিলেশনশিপ ট্র্যাকিং:
+প্রতিটি ফ্রেন্ড কার্ডে নির্দিষ্ট কালার কোডসহ স্ট্যাটাস থাকে:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Overdue (লাল): অনেকদিন যোগাযোগ করা হয়নি।  
+- Almost Due (কমলা): শীঘ্রই যোগাযোগ করা প্রয়োজন।  
+- On-track (সবুজ): নিয়মিত যোগাযোগ আছে।
 
-## Learn More
+### ক্যাটাগরি এবং ট্যাগ:
+বন্ধুদের 'College', 'Best Friend', 'Office', 'Family Friend' ইত্যাদি ট্যাগের মাধ্যমে আলাদা করা যায়।
 
-To learn more about Next.js, take a look at the following resources:
+### ব্যক্তিগত লক্ষ্য (Relationship Goals):
+প্রতিটি বন্ধুর প্রোফাইলে আলাদা গোল সেট করা যায় (যেমন: প্রতি ১০ দিনে একবার কথা বলা)।
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ইন্টারঅ্যাকশন হিস্ট্রি (Timeline):
+কার সাথে কবে কল, মেসেজ বা ভিডিও কলে কথা হয়েছে, তার একটি সুন্দর টাইমলাইন দেখা যায়।
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ভিজ্যুয়াল স্ট্যাট (Analytics):
+ইউজার কত শতাংশ মেসেজ, অডিও কল বা ভিডিও কল করেছে, তা একটি 'Donut Chart'-এর মাধ্যমে সুন্দরভাবে দেখা যায়।
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ৩. টেকনিক্যাল ডিটেইলস ও রেসপনসিভনেস (Responsive Design)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ওয়েব রেসপনসিভনেস:
+ওয়েবসাইটটি আধুনিক CSS ফ্রেমওয়ার্ক Tailwind দিয়ে তৈরি।  
+কার্ডগুলো এবং গ্রিড লেআউট এমনভাবে সাজানো যে এটি ডেস্কটপ, ট্যাবলেট এবং মোবাইল—সব ডিভাইসেই সুন্দরভাবে কাজ করবে।  
+ছোট স্ক্রিনে কার্ডগুলো একটির নিচে আরেকটি চলে আসবে (Stackable design)।
+
+### ক্লিন ইউআই (UI):
+প্রচুর সাদা জায়গা (White space) রাখা হয়েছে যাতে ইউজারের চোখে আরাম লাগে এবং প্রয়োজনীয় তথ্য দ্রুত খুঁজে পাওয়া যায়।
+
+---
+
+## ৪. বাটন ফাংশনালিটি এবং টোস্ট মেসেজ (Interactive Buttons)
+
+### টোস্ট মেসেজ:
+Call, Text, Video Buttons: প্রোফাইল পেজে 'Quick Check-In' সেকশনে এই বাটনগুলো আছে।  
+তাই এই বাটনগুলোতে ক্লিক করলে সরাসরি কল বা ভিডিও না হয়ে স্ক্রিনের কোণায় একটি "Toast Notification" দেখায়।  
+এটি ইউজারকে নিশ্চিত করে যে তার অ্যাকশনটি রেকর্ড করা হয়েছে।
+
+---
+
+## ৫. অন্যান্য পয়েন্ট
+
+- Add Friend Button: খুব সহজে নতুন বন্ধু যোগ করার অপশন।  
+- Snooze & Archive: কোনো নির্দিষ্ট বন্ধুকে কিছুদিনের জন্য রিমাইন্ডার থেকে সরিয়ে রাখা (Snooze) বা আর্কাইভ করার ব্যবস্থা।  
+- সোশ্যাল লিংক এবং ফুটার: ফুটারে সোশ্যাল মিডিয়া আইকন এবং প্রয়োজনীয় পলিসি লিংক রয়েছে।

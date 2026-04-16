@@ -4,7 +4,7 @@ import BanerCard from './BanerCard';
 const Baner = () => {
 
   return (
-    <div className="bg-[#F9FAFB]  py-16 px-4 font-sans rounded-3xl mt-1 max-w-7xl mx-auto">
+    <div className="bg-[#F9FAFB]  py-16 px-16 font-sans rounded-3xl mt-1 max-w-7xl mx-auto">
       <div className="max-w-6xl mx-auto text-center">
 
         <h1 className="text-4xl md:text-5xl font-bold text-[#111827] mb-4">

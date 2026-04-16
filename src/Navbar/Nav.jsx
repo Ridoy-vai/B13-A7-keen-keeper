@@ -5,7 +5,7 @@ import NavLink from "./NavLink";
 const Navebar = () => {
  
   return (
-    <div className="bg-base-100 shadow-sm container">
+    <div className="bg-base-100 shadow-sm container mx-auto">
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

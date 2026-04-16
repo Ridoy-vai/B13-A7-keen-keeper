@@ -30,7 +30,12 @@ const TimelineMap = () => {
 
     return (
         <div className="max-w-3xl space-y-4">
-            {filteredData.map((item, index) => (
+            {filteredData.length === 0 ? <div className="w-full h-32 flex flex-col items-center justify-center border border-gray-200 rounded-xl bg-gray-50 text-gray-500">
+                <p className="text-sm font-medium">No activity yet</p>
+                <p className="text-xs text-gray-400 mt-1">
+                    Your calls, messages and interactions will appear here
+                </p>
+            </div> : filteredData.map((item, index) => (
                 <div key={index} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all flex items-center gap-4">
                     <div className="shrink-0">
                         {

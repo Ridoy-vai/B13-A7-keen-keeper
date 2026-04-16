@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"; // 'X' à¦à
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1F3D32] text-white py-16 px-6 md:px-12 font-sans">
+    <footer className="bg-[#1F3D32] text-white py-10 px-6 md:px-12 font-sans container mx-auto">
       <div className="max-w-7xl mx-auto text-center">
         
         {/* Brand Name */}
@@ -12,12 +12,12 @@ const Footer = () => {
         </h1>
 
         {/* Tagline */}
-        <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
           Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
         </p>
 
         {/* Social Links Section */}
-        <div className="flex flex-col items-center gap-4 mb-16">
+        <div className="flex flex-col items-center gap-4 mb-10">
           <h3 className="text-sm font-semibold tracking-wide">Social Links</h3>
           <div className="flex gap-4">
             {/* Instagram */}
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar Divider */}
-        <div className="border-t border-white/10 w-full mb-8"></div>
+        <div className="border-t border-white/10 w-full mb-6"></div>
 
         {/* Bottom Links & Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400 gap-4">
