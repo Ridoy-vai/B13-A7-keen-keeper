@@ -20,9 +20,7 @@ export const metadata = {
 const FriendProfile = async ({ params }) => {
     const { friendsDetails } = await params;
 
-    const res = await fetch('https://b-13-a-7-keen-keeper.vercel.app/Data.json', {
-        cache: "no-store"
-    })
+    const res = await fetch('https://b-13-a-7-keen-keeper.vercel.app/Data.json')
     const friends = await res.json()
 
     const matchFrind = friends.filter(fnd => Number(fnd.id) === Number(friendsDetails))
